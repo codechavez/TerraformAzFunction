@@ -20,7 +20,6 @@ namespace AzFunctionHelloWorld
             if (data is null)
                 return new BadRequestObjectResult("Dude! pass me some value");
 
-
             var responseMessage = $"You said, {data.message}";
 
             return new OkObjectResult(responseMessage);
