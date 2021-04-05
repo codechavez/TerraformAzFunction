@@ -57,7 +57,7 @@ resource "azurerm_resource_group" "app" {
 
 # Storage Account
 resource "azurerm_storage_account" "app" {
-  name                     = lower("${terraform.workspace}-appstorage${local.app_storage_name}")
+  name                     = lower("${terraform.workspace}appstorage${local.app_storage_name}")
   resource_group_name      = azurerm_resource_group.app.name
   location                 = var.location
   account_tier             = "Standard"
