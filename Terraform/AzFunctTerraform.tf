@@ -13,7 +13,7 @@ variable "location" {
 
 locals {
   full_rg_name      = "${terraform.workspace}-${var.resource_group_name}"
-  full_app_name     = "__app_name__"
+  full_app_name     = "${terraform.workspace}-__app_name__"
   app_storage_name  = __app_storage_name__
 }
 
@@ -70,7 +70,7 @@ resource "azurerm_storage_account" "app" {
 
 # Service Plan
 resource "azurerm_app_service_plan" "app" {
-  name                = lower("${terraform.workspace}-${local.full_app_name}-plan")
+  name                = lower("${local.full_app_name}-plan")
   location            = "${azurerm_resource_group.app.location}"
   resource_group_name = "${azurerm_resource_group.app.name}"
   kind                = "FunctionApp"
