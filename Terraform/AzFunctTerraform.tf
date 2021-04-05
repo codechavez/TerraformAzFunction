@@ -3,7 +3,8 @@
 ##############################
 
 variable "resource_group_name" {
-  type = string
+  type    = string
+  default = "__app_name__Group" 
 }
 
 variable "location" {
